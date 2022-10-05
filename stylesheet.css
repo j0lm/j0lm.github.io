@@ -1,0 +1,17 @@
+
+body {
+    background-color: darkslategray;
+}
+
+.wrapper {
+    margin: 25px;
+}
+
+.toptext {
+    font-family: sans-serif;
+    color: #FFFDD0;
+}
+
+#tester {
+    color:red;
+}

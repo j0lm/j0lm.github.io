@@ -12,6 +12,10 @@ body {
     color: #FFFDD0;
 }
 
+#longhorn {
+    width: 75px;
+}
+
 #tester {
     color:red;
 }

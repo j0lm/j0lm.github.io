@@ -9,7 +9,7 @@ body {
 }
 
 .toptext {
-    color: #e08761;
+    color: white;
     text-shadow: -2px 2px black;
 }
 
@@ -26,13 +26,19 @@ body {
 }
 
 #li {
-    color: #e08761;
+    color: white;
 }
 
 #li:hover {
-    color: #ccafa2;
+    color: #e08761;
 }
 
-#li:visited {
+.content {
     color: white;
+    text-shadow: -2px 2px black;
+    font-size: 20px;
+}
+
+#songrequest {
+    width: 55%;;
 }

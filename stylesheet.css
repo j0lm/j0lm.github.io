@@ -1,21 +1,38 @@
 
 body {
-    background-color: darkslategray;
+    background-color: #80381a;
 }
 
 .wrapper {
     margin: 25px;
+    font-family: sans-serif;
 }
 
 .toptext {
-    font-family: sans-serif;
-    color: #FFFDD0;
+    color: #e08761;
+    text-shadow: -2px 2px black;
 }
 
 #longhorn {
+    float: left;
     width: 75px;
+    padding-bottom: 5px;
+    position:relative;
+    bottom: 5px;
 }
 
 #tester {
     color:red;
+}
+
+#li {
+    color: #e08761;
+}
+
+#li:hover {
+    color: #ccafa2;
+}
+
+#li:visited {
+    color: white;
 }

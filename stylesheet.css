@@ -1,15 +1,15 @@
 
 body {
-    background-color: #80381a;
+    background-color: #333333;
 }
 
 .wrapper {
     margin: 25px;
-    font-family: sans-serif;
+    font-family: consolas;
 }
 
 .toptext {
-    color: white;
+    color: #8db1ab;
     text-shadow: -2px 2px black;
 }
 

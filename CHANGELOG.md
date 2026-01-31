@@ -4,6 +4,9 @@ All notable changes to this project will be documented here.
 
 ## [Unreleased]
 
+### Added
+- Color picker: subtle toggle icon in top-right corner opens a menu to change text and background colors
+
 ### Changed
 - finals-battle-pass-calc status set to unmaintained
 

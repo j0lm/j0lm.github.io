@@ -8,9 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>~></title>
     <style>
+        :root {
+            --text-color: #cdbe78;
+            --bg-color: #202020;
+        }
         body {
-            background-color: #202020;
-            color: #cdbe78;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-family: 'Lekton', sans-serif;
             display: flex;
             justify-content: center;
@@ -19,14 +23,68 @@
             text-align: left;
         }
         a {
-            color: #cdbe78;
+            color: var(--text-color);
         }
-	a:hover {
-	    color: #ddce88;
-	}
+        a:hover {
+            filter: brightness(1.15);
+        }
+        #color-toggle {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--text-color);
+            opacity: 0.3;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: opacity 0.2s;
+        }
+        #color-toggle:hover {
+            opacity: 0.55;
+        }
+        #color-menu {
+            display: none;
+            position: fixed;
+            top: 30px;
+            right: 10px;
+            background-color: var(--bg-color);
+            border: 1px solid color-mix(in srgb, var(--text-color) 35%, transparent);
+            padding: 10px 12px;
+            font-family: 'Lekton', sans-serif;
+            font-size: 13px;
+            color: var(--text-color);
+        }
+        #color-menu.open {
+            display: block;
+        }
+        #color-menu label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        #color-menu label + label {
+            margin-top: 6px;
+        }
+        #color-menu input[type="color"] {
+            width: 22px;
+            height: 18px;
+            border: 1px solid color-mix(in srgb, var(--text-color) 25%, transparent);
+            border-radius: 2px;
+            background: none;
+            cursor: pointer;
+            padding: 0;
+        }
     </style>
 </head>
 <body>
+    <button id="color-toggle"></button>
+    <div id="color-menu">
+        <label>text <input type="color" id="text-color" value="#cdbe78"></label>
+        <label>bg   <input type="color" id="bg-color"   value="#202020"></label>
+    </div>
     <div>
 <pre>{
     "name": "jose olmedo",
@@ -42,6 +100,30 @@
     ]
 }</pre>
     </div>
+    <script>
+        const toggle = document.getElementById('color-toggle');
+        const menu   = document.getElementById('color-menu');
+        const root   = document.documentElement;
+
+        toggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menu.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!menu.contains(e.target) && e.target !== toggle) {
+                menu.classList.remove('open');
+            }
+        });
+
+        document.getElementById('text-color').addEventListener('input', (e) => {
+            root.style.setProperty('--text-color', e.target.value);
+        });
+
+        document.getElementById('bg-color').addEventListener('input', (e) => {
+            root.style.setProperty('--bg-color', e.target.value);
+        });
+    </script>
 </body>
 </html>
 

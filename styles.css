@@ -1,0 +1,42 @@
+/* Full-viewport background */
+:root {
+  --bg: #1A1A1A;
+  --blue: #3e6868;
+  --red: #c94e44;
+  --cream: #c1ab85;
+  --muted: #bdbdbd;
+  --max-width: 960px;
+}
+
+body {
+  margin: 0;
+  background: #1A1A1A;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Container starts at top, centered horizontally */
+.container {
+  padding: 40px 0;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Base box style */
+.box {
+  padding: 40px;
+  border-radius: 16px;
+  font-size: 1.2rem;
+  color: #1A1A1A;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+/* Colors */
+.bg1 { background: #1A1A1A; }
+.bg2 { background: #3e6868; }
+.bg3 { background: #c94e44; }
+.bg4 { background: #c1ab85; }
+

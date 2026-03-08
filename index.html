@@ -6,7 +6,7 @@
    <link href="https://fonts.googleapis.com/css2?family=Lekton:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>~></title>
+    <title>~/></title>
     <style>
         :root {
             --text-color: #cdbe78;
@@ -77,6 +77,23 @@
             cursor: pointer;
             padding: 0;
         }
+        .fold-open {
+            cursor: pointer;
+            user-select: none;
+        }
+        .fold-open:hover {
+            filter: brightness(1.3);
+        }
+        .fold-ellipsis {
+            display: none;
+        }
+        .foldable.folded .fold-body,
+        .foldable.folded .fold-close {
+            display: none;
+        }
+        .foldable.folded .fold-ellipsis {
+            display: inline;
+        }
     </style>
 </head>
 <body>
@@ -87,17 +104,39 @@
     </div>
     <div>
 <pre>{
-    "name": "jose olmedo",
-    "status": "i am working on stuff.",
+    "name": "Jose",%
+    "status": "I am working on stuff.",
     "github": "<a href="https://github.com/j0lm">https://github.com/j0lm</a>",
-    "projects": [
-        {
+    "projects": <span class="foldable"><span class="fold-open">[</span><span class="fold-ellipsis">...]</span><span class="fold-body">
+        <span class="foldable"><span class="fold-open">{</span><span class="fold-ellipsis">...}</span><span class="fold-body">
             "name": "<a href="https://j0lm.github.io/finals-battle-pass-calc/">finals-battle-pass-calc</a>",
-            "description": "a calculator to track and predict battle pass progress in finals.",
+            "description": "A calculator to track and predict battle pass progress in The Finals.",
             "status": "unmaintained",
-            "notes": "the input fields are not clear, and the text for the current-level xp input does not stay centered and is not slanted."
-        }
-    ]
+            "notes": "The input fields are not clear, and the text for the current-level XP input is not slanted and does not stay centered."
+        </span><span class="fold-close">}</span></span>
+    </span><span class="fold-close">]</span></span>,
+    "music": <span class="foldable"><span class="fold-open">{</span><span class="fold-ellipsis">...}</span><span class="fold-body">
+        "listening_to": <span class="foldable"><span class="fold-open">{</span><span class="fold-ellipsis">...}</span><span class="fold-body">
+            "last_modified": "2026-03-08",
+            "albums": <span class="foldable"><span class="fold-open">[</span><span class="fold-ellipsis">...]</span><span class="fold-body">
+                { "artist": "Grimes",    "album": "Miss Anthropocene" },
+                { "artist": "Kid Cudi",  "album": "Indicud"           },
+                { "artist": "Anttonias", "album": "Anttonias"         }
+            </span><span class="fold-close">]</span></span>
+        </span><span class="fold-close">}</span></span>
+    </span><span class="fold-close">}</span></span>,
+    "machines": <span class="foldable"><span class="fold-open">[</span><span class="fold-ellipsis">...]</span><span class="fold-body">
+        <span class="foldable"><span class="fold-open">{</span><span class="fold-ellipsis">...}</span><span class="fold-body">
+            "name": "Desktop",
+            "description": "Main workstation",
+            "os": "Windows 11",
+            "cpu": "AMD Ryzen 5 7600",
+            "gpu": "AMD Radeon RX 7900 XT",
+            "ram": "32GB Corsair Vengeance RGB DDR5 6000MHz",
+            "motherboard": "MSI MAG B650 Tomahawk",
+            "storage": "WD Black SN850X 2TB"
+        </span><span class="fold-close">}</span></span>
+    </span><span class="fold-close">]</span></span>
 }</pre>
     </div>
     <script>
@@ -123,7 +162,13 @@
         document.getElementById('bg-color').addEventListener('input', (e) => {
             root.style.setProperty('--bg-color', e.target.value);
         });
+
+        document.querySelectorAll('.fold-open').forEach(el => {
+            el.addEventListener('click', e => {
+                e.stopPropagation();
+                el.closest('.foldable').classList.toggle('folded');
+            });
+        });
     </script>
 </body>
 </html>
-
